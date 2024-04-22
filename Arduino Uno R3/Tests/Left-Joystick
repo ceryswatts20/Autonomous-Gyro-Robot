@@ -10,11 +10,6 @@ const unsigned long POLLING_INTERVAL = 1000U / 50U;
 PsxControllerBitBang<PIN_PS2_ATT, PIN_PS2_CMD, PIN_PS2_DAT, PIN_PS2_CLK> psx;
 
 bool haveController = false;
-// Initialise analogue stick start positions
-byte prev_lx = 128;
-byte prev_ly = 128;
-byte prev_rx = 128;
-byte prev_ry = 128;
 
 void setup () {
   Serial.begin(115200);
