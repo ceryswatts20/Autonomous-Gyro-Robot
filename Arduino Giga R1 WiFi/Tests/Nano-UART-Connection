@@ -1,3 +1,6 @@
+String receivedMessage = "";
+char receivedChar = '';
+
 void setup() {
   // Start serial communication
   Serial.begin(9600);
@@ -11,8 +14,7 @@ void loop() {
     // Read 1 character
     receivedChar = Serial2.read();
     if (receivedChar == '\n') {
-      // Save the received data
-      data = receivedMessage;
+      Serial.println(receivedMessage);
       // Reset the variable
       receivedMessage = "";
     }
