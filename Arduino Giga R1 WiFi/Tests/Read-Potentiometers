@@ -14,7 +14,7 @@ void loop() {
   if (lat_pot != prev_lat_pot) {
     // Save new value
     prev_lat_pot = lat_pot;
-    Serial.print("Steering Potentiometer = " + String(lat_pot));
+    Serial.print("Lateral Potentiometer = " + String(lat_pot));
   }
   if (spin_pot != prev_spin_pot) {
     // Save new value
