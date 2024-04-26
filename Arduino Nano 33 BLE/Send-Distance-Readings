@@ -47,8 +47,6 @@ void setup() {
 
   // Start advertising
   BLE.advertise();
-  Serial.print("Peripheral device MAC: ");
-  Serial.println(BLE.address());
   Serial.println("Waiting for connections...");
 }
 
@@ -58,10 +56,6 @@ void loop() {
 
   // If a central is connected to the peripheral:
   if (central) {
-    Serial.print("Connected to central MAC: ");
-    // Print the central's BT address:
-    Serial.println(central.address());
-
     // Keep looping while connected
     while (central.connected()) {
       // Get sensor reading
