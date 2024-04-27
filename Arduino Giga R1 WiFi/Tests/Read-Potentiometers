@@ -3,7 +3,7 @@ const int SPIN_POT = A1;
 
 int prev_lat_val, prev_spin_val, lat_pot, spin_pot;
 void setup() {
-
+  Serial.begin(9600);
 }
 
 void loop() {
