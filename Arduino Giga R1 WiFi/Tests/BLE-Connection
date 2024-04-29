@@ -52,12 +52,12 @@ void connectToPeripheral(){
   if (peripheral) {
     // Print peripheral's info
     Serial.println("* Peripheral device found!");
-    Serial.print("* Device MAC address: ");
-    Serial.println(peripheral.address());
+    //Serial.print("* Device MAC address: ");
+    //Serial.println(peripheral.address());
     Serial.print("* Device name: ");
     Serial.println(peripheral.localName());
-    Serial.print("* Advertised service UUID: ");
-    Serial.println(peripheral.advertisedServiceUuid());
+    //Serial.print("* Advertised service UUID: ");
+    //Serial.println(peripheral.advertisedServiceUuid());
     Serial.println(" ");
     // Stop scanning
     BLE.stopScan();
