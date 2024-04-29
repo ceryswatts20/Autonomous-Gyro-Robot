@@ -20,7 +20,7 @@ void setup() {
 void loop(){
     // Get sensor reading
     if(Lidar.getData(distance, address)) {
-        Serial.println(String(tfDist)+" cm / " + String(tfDist/2.54)+" inches");
+        Serial.println(String(tfDist) + " cm");
     }
     delay(50);
 }
