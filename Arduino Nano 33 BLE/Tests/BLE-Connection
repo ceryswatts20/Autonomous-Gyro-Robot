@@ -5,10 +5,10 @@
 const char* serviceUuid = "19b10000-e8f2-537e-4f6c-d104768a1214";
 const char* characteristicUuid = "19b10001-e8f2-537e-4f6c-d104768a1214";
 
-\\ User defined service
-BLEService objectDetectionService(serviceUuid);
-\\ Read-only and notifies central device when value changes
-BLEStringCharacteristic distanceCharacteristic(characteristicUuid, BLERead | BLENotify);
+// User defined service
+BLEService testService(serviceUuid);
+// Read-only
+BLEStringCharacteristic messageCharacteristic(characteristicUuid, BLERead);
 
 double distance = 82.2;
 
@@ -23,16 +23,16 @@ void setup() {
     while (1);
   }
 
-  \\ Set device name
+  // Set device name
   BLE.setLocalName("Dome (Peripheral)");
-  \\ Advertise service
-  BLE.setAdvertisedService(objectDetectionService);
-  \\ Add characteristic to service
-  objectDetectionService.addCharacteristic(distanceCharacteristic);
-  \\ Add service
-  BLE.addService(objectDetectionService);
-  \\ Set the initial value for the characeristic
-  distanceCharacteristic.setValue(String(distance));
+  // Advertise service
+  BLE.setAdvertisedService(testService);
+  // Add characteristic to service
+  objectDetectionService.addCharacteristic(messageCharacteristic);
+  // Add service
+  BLE.addService(testService);
+  // Set the initial value for the characeristic
+  distanceCharacteristic.setValue("Hello World!");
 
   // Start advertising
   BLE.advertise();
