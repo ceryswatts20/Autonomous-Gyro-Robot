@@ -97,40 +97,21 @@ void getPeripheralData(BLEDevice peripheral) {
     return;
   }
   // Save device's characteristic at characteristicUuid
-  BLEStringCharacteristic distanceCharacteristic = peripheral.characteristic(characteristicUuid);
+  BLEStringCharacteristic messageCharacteristic = peripheral.characteristic(characteristicUuid);
 
   // If the charateristic isn't there
-  if (!distanceCharacteristic) {
+  if (!messageCharacteristic) {
     Serial.println("* Peripheral device does not have a distance characteristic!");
     peripheral.disconnect();
     // Exit method
     return;
-  } 
-  // If the characteristic is there but cannot be subscribed to
-  else if (!distanceCharacteristic.canSubscribe()) {
-    Serial.println(" Distance characteristic is not subscribale!");
-    peripheral.disconnect();
-    // Exit method
-    return;
-  }
-  // If the characteristic is there, can be subscribed to but failed to
-  else if(!distanceCharacteristic.subscribe()) {
-    Serial.println("Subscription failed!");
-    peripheral.disconnect();
-    // Exit method
-    return;
-  }
-  else {
-    Serial.println("BB8 body is subscribed to the dome");
   }
 
   while (peripheral.connected()) {
-    // If the characteristic is updated
-    if (distanceCharacteristic.valueUpdated()) {
-      // Save data into variable distance
-      distanceCharacteristic.value(distance);
-      Serial.println("Distance = " + distance + " cm");
-    }
+    String message = "";
+    // Save data into variable
+    messageCharacteristic.value(message)
+    Serial.println(message);
   }
 
   Serial.println("- Peripheral device disconnected!");
